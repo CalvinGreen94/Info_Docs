@@ -32,7 +32,6 @@ The `swapTx` function manages the swap transactions by performing the following 
 
 Example data:
 
-Here is your data formatted in Markdown:
 
 ```
 ## Data Object
