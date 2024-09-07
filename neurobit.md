@@ -40,11 +40,9 @@ HistoricalData Class:
 
 This class handles the data extraction from the Coinbase Pro API.
 Example usage:
-python
-Copy code
 data = HistoricalData('BTC-USD', 60, '2024-08-30-00-00').retrieve_data()
-print(data)
-deeper() Function:
+
+## deeper() Function:
 
 This function handles the main trading logic, performing analysis, predictions, and trading actions.
 It isolates features from the extracted data, applies technical indicators, and predicts future prices using LSTM.
@@ -52,24 +50,37 @@ Buy and Sell Logic:
 
 The trading bot makes buying or selling decisions based on RSI, current price, and predicted values.
 It communicates with the Coinbase API to execute trades.
-Trading Strategy
-Buying Strategy:
+
+
+## Trading Strategy
+
+### Buying Strategy:
 
 Buys when the current price is lower than the selling price, or when RSI is greater than or equal to 65.
-Selling Strategy:
+
+### Selling Strategy:
 
 Sells when the current price is higher than the buying price, or when RSI is less than or equal to 40.
-Stop-Loss Mechanism:
+
+
+### Stop-Loss Mechanism:
 
 Implements stop-loss orders to minimize losses by triggering a sell if the price falls below a certain threshold.
-LSTM Model for Price Prediction
+
+## LSTM Model for Price Prediction:
+
 The LSTM model predicts future prices based on historical data. The predictions help inform the trading strategy and can dynamically adjust buy/sell decisions.
 
 Model Configuration:
+
 Two LSTM layers with dense output.
+
 Configurable hyperparameters such as batch size, time steps, and learning rate.
-Training and Prediction:
+
+## Training and Prediction:
+
 The model is trained on historical low prices of the cryptocurrency, and future low prices are predicted.
+
 Additional Notes
 The script includes numerous helper functions and safety checks to ensure robust trading behavior.
 Make sure to respect API rate limits to avoid getting blocked by the exchange.
