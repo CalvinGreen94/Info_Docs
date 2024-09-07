@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Python script is a comprehensive tool for cryptocurrency trading that integrates with the Coinbase Pro API. It allows users to extract historical cryptocurrency price data, perform technical analysis, visualize data, and implement automated trading strategies. The script also includes a Long Short-Term Memory (LSTM) neural network to predict future price movements.
+NeuroBit is a comprehensive tool for cryptocurrency trading that integrates with the Coinbase Pro API. It allows users to extract historical cryptocurrency price data, perform technical analysis, visualize data, and implement automated trading strategies. The script also includes a Long Short-Term Memory (LSTM) neural network to predict future price movements.
 
 ## Features
 
