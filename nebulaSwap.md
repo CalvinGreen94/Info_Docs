@@ -34,10 +34,10 @@ Example data:
 
 Here is your data formatted in Markdown:
 
-```n
+```
 ## Data Object
 
-```json
+```datastream example
 {
     "id": "5YZMMrcKBecsKom4xSmsJhG4yWXLjz76Ncu2AA9qsM9Z",
     "decimals": 6,
