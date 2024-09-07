@@ -6,23 +6,23 @@ This repository contains scripts for a trading prediction system that utilizes m
 
 ## Components
 
-The project consists of three main scripts:
+The project consists of three main parts:
 
-1. **Data Preparation Script** (`data_preparation.py`):
+1. **Data Preparation**:
    - **Purpose**: Prepares and preprocesses data for training and testing.
    - **Features**:
      - Data cleaning and feature extraction.
      - Normalization and scaling of features.
      - Splitting data into training and testing sets.
 
-2. **Model Training and Prediction Script** (`model_training.py`):
+2. **Model Training and Prediction Script**:
    - **Purpose**: Trains machine learning models and makes predictions based on the prepared data.
    - **Features**:
      - Fits multiple regression models to training data.
      - Makes predictions on test data for price changes, RSI, and other metrics.
      - Evaluates model performance using score metrics.
 
-3. **Trading Execution Script** (`trading_execution.py`):
+3. **Trading Execution Script**:
    - **Purpose**: Executes trading decisions based on model predictions and real-time data.
    - **Features**:
      - Decision-making logic for buying or selling based on predictions and market conditions.
