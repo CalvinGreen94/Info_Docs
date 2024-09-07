@@ -32,6 +32,12 @@ The `swapTx` function manages the swap transactions by performing the following 
 
 Example data:
 
+Here is your data formatted in Markdown:
+
+```n
+## Data Object
+
+```json
 {
     "id": "5YZMMrcKBecsKom4xSmsJhG4yWXLjz76Ncu2AA9qsM9Z",
     "decimals": 6,
@@ -71,3 +77,4 @@ Example data:
     "Balance": 0,
     "effective_price": 2.1392409999999996e-08
 }
+```
