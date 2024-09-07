@@ -1,4 +1,4 @@
-# NebulaSwap Transaction Script
+# RayBurst Transaction Script
 
 This script performs a series of operations to handle swap transactions using Solana. The primary functions involve reading JSON data, preparing transactions, and executing swaps on the Solana blockchain. Below is a detailed description of the script's functionality and usage.
 
