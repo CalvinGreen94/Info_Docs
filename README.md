@@ -36,7 +36,7 @@
 ### **Next Steps for Collaboration**:
 - Discuss tokenomics for distributing HOPE tokens and the exact number of tokens to be sent.
 
-This plan outlines the system's structure and flow, making it easy to discuss and implement with your collaborator.
+This plan outlines the system's structure and flow
 ---
 
 
