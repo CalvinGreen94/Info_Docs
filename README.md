@@ -10,8 +10,8 @@
    - Ensure the wallet is properly connected and authenticated.
 
 2. **Initiate Transfer**:
-   - After connection, users click a button to send 0.001 SOL to your designated wallet.
-   - A transaction is created using the Solana system program to transfer 0.001 SOL from the user's wallet to your wallet.
+   - After connection, users click a button to send 0.001 SOL to HopeNet designated wallet.
+   - A transaction is created using the Solana system program to transfer 0.001 SOL from the user's wallet to HopeNet wallet.
    - Transaction confirmation is required to proceed.
 
 3. **Send HOPE Tokens**:
