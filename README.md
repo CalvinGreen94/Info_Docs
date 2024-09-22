@@ -1,7 +1,6 @@
 
 ---
 
-### **Selling AI-Traded Tokens on Raydium**
 
 When a user holds the HOPE token, it grants them proof of ownership within the HopeNet system. The AI is actively trading various tokens on the Solana network via Raydium DEX. Holding the HOPE token means users can receive a portion of these AI-traded tokens. Here’s how users can sell these tokens:
 
