@@ -16,7 +16,7 @@
 
 3. **Send HOPE Tokens**:
    - Once the 0.001 SOL(currently) transaction is confirmed, automatically initiate a second transaction.
-   - TODO: The second transaction sends a fixed amount of HOPE tokens (e.g., 2000 tokens) from your token account to the user’s wallet.
+   - TODO: The second transaction sends a fixed amount of HOPE tokens (e.g., 2000 tokens) from HopeNet token account to the user’s wallet.
    - The token transfer is facilitated by the Solana Program Library (SPL) using the token program ID.
 
 4. **Transaction Confirmation**:
