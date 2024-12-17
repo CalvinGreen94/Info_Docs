@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OffChained - AI Trading Platform Viewer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css_main/custom.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+
+<body>
+
+    <header>
+        <div class="card">
+            <h5 class="card-title">Snope OffChained - AI Trading Viewer</h5>
+            <img src="/static/kook.jpg" alt="Kook Icon" style="vertical-align: middle; margin-right: 10px;"
+                width="250px" height="250px">
+            <div class="token-card">
+                <a href="/">
+                    RETURN HOME </a>
+            </div>
+        </div>
+    </header>
+    <div class="card">
+        <form action="/dex_AI" accept-charset="UTF-8" method="POST" style="text-align: center; margin-bottom: 20px;">
+            <div style="font-weight: bold; margin-bottom: 10px;">SNOPE: Yo, what’s up??, ENTER TOKEN ADDRESS</div>
+    
+            <input type="text" name="ENTER TOKEN ADDRESS" style="padding: 10px; width: 70%; margin-top: 10px; margin-bottom: 10px;"
+                placeholder="ENTER TOKEN ADDRESS">
+            <br />
+    
+    
+            <button type="submit"
+                style="padding: 10px 20px; background-color: #2e2e2e; color: white; border: none; cursor: pointer;">
+    
+    <div class="token-card">
+    
+                <span>GENERATE FORECAST</span>
+    </div>
+    
+            </button>
+        </form>
+
+        <!-- Display KOOK's response here -->
+        <!-- {% if dex_AI %} -->
+        <!-- {% endif %} -->
+    </div>
+    <h3 style="text-align: center;">{{ pred_price_change }}</h3>
+    <h3 style="text-align: center;">{{ pair }}</h3>
+
+    <!-- {{message}} -->
+
+    <!-- <div class="token-grid">
+
+      </div>
+      <h1>All Tokens:</h1>
+      <div class="token-grid">
+        {% for pair in pairs %}
+          <div class="token-card">
+            <a href="/?token_address={{ pair }}">
+              <h2>Token</h2>
+              <p>{{ pair }}</p>
+            </a>
+            
+          </div>
+        {% endfor %}
+      </div>
+      <h2>{{ message }}</h2>
+      <h3>Enter Uniswap:</h3><h2> <a href="{{ url }}" target="_blank">{{ url }}</a></h2>
+      <h3>Enter DexScreener:</h3><h2> <a href="{{ dex }}" target="_blank">{{ dex }}</a></h2>
+
+
+    </div> -->
+
+
+    <!-- Blockchain info -->
+    <div class="blockchain-info">
+        <p>{{ valid }}</p>
+        <p>{{ chain_replaced }}</p>
+        {{ fullChain }}
+    </div>
+    </div>
+
+    <footer>
+        <div class="card">
+            <h5 class="card-title">Thank You to Snope Users!</h5>
+            <h5 class="card-title">Thank You to our data providers!</h5>
+
+            <img src="/static/" alt="Raydium">
+            <img src="/static/" alt="Uniswap">
+            <img src="/static/" alt="Ethereum">
+            <img src="/static/" alt="Solana">
+
+            <img src="/static/" alt="Helius">
+            <img src="/static/" alt="Infura">
+        </div>
+    </footer>
+</body>
+
+</html>
