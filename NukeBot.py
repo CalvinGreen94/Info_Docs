@@ -85,9 +85,9 @@ api_key = '###'
 api_secret = '###'
 fauna_ipa = '###'
 import json
-infura_url = f"https://goerli.infura.io/v3/{ipa}"
-web3 = Web3(Web3.HTTPProvider(infura_url))
-web3.middleware_onion.inject(geth_poa_middleware, layer=0)
+#infura_url = f"https://goerli.infura.io/v3/{ipa}"
+#web3 = Web3(Web3.HTTPProvider(infura_url))
+#web3.middleware_onion.inject(geth_poa_middleware, layer=0)
 def save_data_to_json(data, filename='C:/Users/peace/desktop/hopeswap/hope_bot/src/data.json'):
     with open(filename, 'w') as json_file:
         json.dump(data, json_file)
