@@ -5,7 +5,7 @@ import {
 	ComputeBudgetProgram,
 	SystemProgram, TransactionMessage, VersionedTransaction
 } from "@solana/web3.js";
-import { connection, RAYDIUM_ACCOUNT_ADDRESS, wallet,SPL_TOKEN_ID } from "./config";
+import { connection, RAYDIUM_ACCOUNT_ADDRESS, wallet, SPL_TOKEN_ID } from "./config";
 import { Connection } from "@solana/web3.js";
 import { createMint, getOrCreateAssociatedTokenAccount, mintTo } from "@solana/spl-token";
 import assert from 'assert';
@@ -37,7 +37,7 @@ import {
 } from "./constants";
 
 import { createTokenAccounts, unwrapNative, wrapNative } from "./token-utils";
-import {  sleep } from "./utils";
+import { sleep } from "./utils";
 import { BN } from "bn.js";
 import { Keypair } from '@solana/web3.js';
 
@@ -48,7 +48,7 @@ import { FAUNA_API_KEY } from "./config";
 import { query as q, Client } from 'faunadb';
 const api_key = FAUNA_API_KEY;
 const client = new Client({ secret: api_key, domain: 'db.us.fauna.com' });
-import { createBurnCheckedInstruction, TOKEN_PROGRAM_ID,TOKEN_2022_PROGRAM_ID, getAssociatedTokenAddress } from "@solana/spl-token";
+import { createBurnCheckedInstruction, TOKEN_PROGRAM_ID, TOKEN_2022_PROGRAM_ID, getAssociatedTokenAddress } from "@solana/spl-token";
 import { swapie } from './swap'
 const CONNECTION = new Connection(RPC_ENDPOINT, {
 	commitment: providerOptions.commitment,
@@ -71,72 +71,72 @@ async function swapTx(
 			// const { PredictionData, LiquidityData } = readDataFromFile(); 
 			const rawData = fs.readFileSync(filePath, 'utf-8');
 			const jsonData = JSON.parse(rawData);
-		
+
 			// Log the JSON data for debugging
 			if (jsonData.length === 0) {
-                console.log('No data to process. Sleeping...');
-                // await sleep(300000); // Wait before checking again
-                // continue; // Skip to the next loop iteration
-            }
+				console.log('No data to process. Sleeping...');
+				// await sleep(300000); // Wait before checking again
+				// continue; // Skip to the next loop iteration
+			}
 			// console.log('JSON Data:', jsonData);
-		
+
 			// Extract PredictionData and LiquidityData directly if they're objects
 			const PredictionData = [jsonData]; // Wrap in an array for uniform handling
 			const LiquidityData = [jsonData]; // Wrap in an array for uniform handling
 
 			for (const liquidityDoc of LiquidityData) {
 				try {
-				  const {
-					id,
-					ownerBaseAta,
-					baseMint,
-					authority,
-					openOrders,
-					targetOrders,
-					baseVault,
-					quoteVault,
-					marketProgramId,
-					marketId,
-					marketBids,
-					marketAsks,
-					marketEventQueue,
-					marketBaseVault,
-					marketQuoteVault,
-					marketAuthority,
-					ownerQuoteAta,
-					quoteMint,
-					pool,
-					isFrozen,
-				  } = liquidityDoc;
-				//   console.log(id)
-		
-				  // If account is frozen, skip processing
-				  if (isFrozen === 'true') {
-					console.log('Skipping frozen account');
-					console.log(`Account frozen: ${isFrozen}`);
-					continue;
-				  }
-		
-				//   console.log(`Account frozen: ${isFrozen}`);
-		
-				  // Process PredictionData for each LiquidityData entry
-				  for (const predictionDoc of PredictionData) {
-					try {
-					  const {
-						pair_address,
-						score,
-						liquidity_prediction: liquidityPrediction,
+					const {
+						id,
+						ownerBaseAta,
 						baseMint,
-						amount,
-						balance,
-						effective_price: effectivePrice,
-						precision,
-						rating,
-						side,
-						price,
-						price_prediction: pricePrediction,
-					  } = predictionDoc;
-					//   console.log(liquidityPrediction)
+						authority,
+						openOrders,
+						targetOrders,
+						baseVault,
+						quoteVault,
+						marketProgramId,
+						marketId,
+						marketBids,
+						marketAsks,
+						marketEventQueue,
+						marketBaseVault,
+						marketQuoteVault,
+						marketAuthority,
+						ownerQuoteAta,
+						quoteMint,
+						pool,
+						isFrozen,
+					} = liquidityDoc;
+					//   console.log(id)
+
+					// If account is frozen, skip processing
+					if (isFrozen === 'true') {
+						console.log('Skipping frozen account');
+						console.log(`Account frozen: ${isFrozen}`);
+						continue;
+					}
+
+					//   console.log(`Account frozen: ${isFrozen}`);
+
+					// Process PredictionData for each LiquidityData entry
+					for (const predictionDoc of PredictionData) {
+						try {
+							const {
+								pair_address,
+								score,
+								liquidity_prediction: liquidityPrediction,
+								baseMint,
+								amount,
+								balance,
+								effective_price: effectivePrice,
+								precision,
+								rating,
+								side,
+								price,
+								price_prediction: pricePrediction,
+							} = predictionDoc;
+							//   console.log(liquidityPrediction)
 
 
 							async function createNewMint(connection, payer, mintAuthority, freezeAuthority, decimals) {
@@ -155,18 +155,18 @@ async function swapTx(
 							async function processTokenIfNoFreezeAuthority(mintAddress: string): Promise<boolean> {
 								const mintPublicKey = new PublicKey(mintAddress);
 								const mintInfo = await getMint(connection, mintPublicKey);
-							
+
 								if (mintInfo.freezeAuthority) {
 									console.log('Token has freeze authority. Skipping processing.');
 									return false;
 								}
 								return true;
 							}
-							
+
 							async function processTokenIfNoMintAuthority(mintAddress: string): Promise<boolean> {
 								const mintPublicKey = new PublicKey(mintAddress);
 								const mintInfo = await getMint(connection, mintPublicKey);
-							
+
 								if (mintInfo.mintAuthority) {
 									console.log('Token has mint authority. Skipping processing.');
 									return false;
@@ -316,7 +316,7 @@ async function swapTx(
 								console.log('BUYING')
 								console.log('BUYING')
 								console.log('BUYING')
-// 
+								// 
 								// const transaction = new Transaction();
 
 								// Transfer SOL to the ATA
@@ -330,7 +330,7 @@ async function swapTx(
 									spl.createSyncNativeInstruction(new PublicKey(ownerQuoteAta)),
 									// TOKEN_PROGRAM_ID
 								);
-								
+
 								// Sync the ATA with the native token balance
 								// await transaction.add(wSolTx);
 								// transaction.add(
@@ -342,8 +342,8 @@ async function swapTx(
 
 							}
 
-							
-							
+
+
 							await transaction.add(swap);
 							// await transaction.add(closeSol);
 
@@ -362,7 +362,7 @@ async function swapTx(
 							// sleep(500)
 							// try {
 							// 	const { value } = await connection.simulateTransaction(transaction);
-						
+
 							// 	// Check for logs or errors
 							// 	if (value.err) {
 							// 		console.error('Simulation failed:', value.err);
@@ -374,31 +374,31 @@ async function swapTx(
 							// }
 
 							// if (side === 'Buy') {
-						
-								// await transaction.add(closeSol);
-								if (side === 'Buy') {
-									transaction.feePayer = wallet.publicKey;
-									// console.log(transaction)
-									console.log(transaction)
-									console.log('sending transaction')
-									connection.sendTransaction(transaction, [wallet], {
-										skipPreflight: true,
-										preflightCommitment: "confirmed"
-									});
-									console.log('transaction sent')
-									console.log('swap finished')
-									// 	transaction.add(closeAta);
-									// sleep(500)
 
-									// await transaction.add(closeSol);
-									// transaction.add(closeSol);
-									console.log('BUYING')
-									console.log('BUYING')
-									console.log('BUYING')
-									console.log('BUYING')
-									console.log('BUYING')
-									console.log('BUYING')
-									console.log('BUYING')
+							// await transaction.add(closeSol);
+							if (side === 'Buy') {
+								transaction.feePayer = wallet.publicKey;
+								// console.log(transaction)
+								console.log(transaction)
+								console.log('sending transaction')
+								connection.sendTransaction(transaction, [wallet], {
+									skipPreflight: true,
+									preflightCommitment: "confirmed"
+								});
+								console.log('transaction sent')
+								console.log('swap finished')
+								// 	transaction.add(closeAta);
+								// sleep(500)
+
+								// await transaction.add(closeSol);
+								// transaction.add(closeSol);
+								console.log('BUYING')
+								console.log('BUYING')
+								console.log('BUYING')
+								console.log('BUYING')
+								console.log('BUYING')
+								console.log('BUYING')
+								console.log('BUYING')
 								// 	sleep(500)
 								// 	// console.log(`Step 2 - Create Burn Instructions`);
 								// 	// const burnIx = createBurnCheckedInstruction(
@@ -433,50 +433,50 @@ async function swapTx(
 								// 	// console.log(confirmation)
 								// 	transaction.add(closeSol);
 								// transaction.add(closeAta);
-								} 
+							}
 
-								
+
 							// }
 							else
 
-							if (side === 'Sell') {
-								
-								console.log('SELLING')
-								// await sleep(30000)
+								if (side === 'Sell') {
 
-								await transaction.add(closeSol);
-								
+									console.log('SELLING')
+									// await sleep(30000)
 
-								console.log('target predictions hit for swap')
-								console.log(`Amount: ${amount}, Address: ${pair_address},Liquidity Prediction: ${liquidityPrediction}, Side:${side}, Price: ${price}, Price Prediction: ${pricePrediction}`);
-								// await sleep(1000)
-							// 	transaction.feePayer = wallet.publicKey;
-							// 	transaction.partialSign(wallet)
-							// 	// console.log(transaction)
-							// 	console.log(transaction)
-							// 	console.log('sending transaction')
-							// 	connection.sendTransaction(transaction, [wallet], {
-							// 		skipPreflight: true,
-							// 		preflightCommitment: "confirmed"
-							// 	});
-							// 	console.log('transaction sent')
-							// 	console.log('swap finished')
-							// 	sleep(500)
-							// 	try {
-							// 		const { value } = await connection.simulateTransaction(transaction);
-							
-							// 		// Check for logs or errors
-							// 		if (value.err) {
-							// 			console.error('Simulation failed:', value.err);
-							// 		} else {
-							// 			console.log('Simulation logs:', value.logs);
-							// 		}
-							// 	} catch (err) {
-							// 		console.error('Error during simulation:', err);
-							// 	}
-							// return transaction 
+									await transaction.add(closeSol);
 
-							}
+
+									console.log('target predictions hit for swap')
+									console.log(`Amount: ${amount}, Address: ${pair_address},Liquidity Prediction: ${liquidityPrediction}, Side:${side}, Price: ${price}, Price Prediction: ${pricePrediction}`);
+									// await sleep(1000)
+									// 	transaction.feePayer = wallet.publicKey;
+									// 	transaction.partialSign(wallet)
+									// 	// console.log(transaction)
+									// 	console.log(transaction)
+									// 	console.log('sending transaction')
+									// 	connection.sendTransaction(transaction, [wallet], {
+									// 		skipPreflight: true,
+									// 		preflightCommitment: "confirmed"
+									// 	});
+									// 	console.log('transaction sent')
+									// 	console.log('swap finished')
+									// 	sleep(500)
+									// 	try {
+									// 		const { value } = await connection.simulateTransaction(transaction);
+
+									// 		// Check for logs or errors
+									// 		if (value.err) {
+									// 			console.error('Simulation failed:', value.err);
+									// 		} else {
+									// 			console.log('Simulation logs:', value.logs);
+									// 		}
+									// 	} catch (err) {
+									// 		console.error('Error during simulation:', err);
+									// 	}
+									// return transaction 
+
+								}
 							transaction.feePayer = wallet.publicKey;
 							// console.log(transaction)
 							console.log(transaction)
@@ -487,14 +487,14 @@ async function swapTx(
 							});
 							console.log('transaction sent')
 							console.log('swap finished')
-								// transaction.add(closeAta);
+							// transaction.add(closeAta);
 							sleep(500)
 							return transaction;
 							sleep(500)
 						} catch (error) {
 							console.error('Error processing liquidity data:', error);
 						}
-						
+
 
 
 					};
@@ -514,26 +514,26 @@ async function swapTx(
 
 async function processAllFiles() {
 	const processedFiles = new Set(); // Set to keep track of processed files
-  
+
 	while (true) {
-	  const fileNames = fs.readdirSync('C:\\Path\\to\\files\\hope_chain\\'); // Read all files in the directory
-	  const jsonFiles = fileNames.filter(file => file.startsWith('data_') && file.endsWith('.json')); // Filter JSON files
-  
-	  for (const jsonFile of jsonFiles) {
-		if (processedFiles.has(jsonFile)) { // Check if the file has already been processed
-		  continue; // Skip the file if it has been processed
+		const fileNames = fs.readdirSync('C:\\Users\\peace\\desktop\\hope_chain\\'); // Read all files in the directory
+		const jsonFiles = fileNames.filter(file => file.startsWith('data_') && file.endsWith('.json')); // Filter JSON files
+
+		for (const jsonFile of jsonFiles) {
+			if (processedFiles.has(jsonFile)) { // Check if the file has already been processed
+				continue; // Skip the file if it has been processed
+			}
+
+			const filePath = `C:\\Users\\peace\\desktop\\hope_chain\\${jsonFile}`; // Ensure correct path to the files
+			console.log(`Executing file ${filePath}`);
+			await swapTx(filePath, false); // Process the file
+
+			processedFiles.add(jsonFile); // Add the file to the set of processed files
 		}
-  
-		const filePath = `C:\\Path\\to\\files\\hope_chain\\${jsonFile}`; // Ensure correct path to the files
-		console.log(`Executing file ${filePath}`);
-		await swapTx(filePath, false); // Process the file
-  
-		processedFiles.add(jsonFile); // Add the file to the set of processed files
-	  }
-  
-	//   await new Promise(resolve => setTimeout(resolve, 1000)); // Optionally add a delay to avoid busy-waiting
+
+		//   await new Promise(resolve => setTimeout(resolve, 1000)); // Optionally add a delay to avoid busy-waiting
 	}
-  }
+}
 
 processAllFiles()
 // swapie()
