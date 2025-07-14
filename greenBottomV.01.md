@@ -18,7 +18,7 @@ A unique AI "persona" (GreenBottom) that offers witty, yet practical advice base
 
 Automatic metadata logging of AI-generated insights in structured JSON format.
 
-Weatherify Integration: Real-time local temperature detection based on the user’s location, stored in JSON and factored into investment and building guidance; especially relevant for Earthship viability in different climates.
+Weatherify Integration: Real-time local temperature detection based on the user’s location, stored in JSON and factored into investment and building guidance—especially relevant for Earthship viability in different climates.
 
 A defined plan for integrating OpenStreetMap via Leaflet to showcase lot locations, model homes, and neighborhoods from regional builders like McQ Builders and Wetherington Homes.
 
