@@ -1,8 +1,8 @@
 GreenBottom AI
 Overview:
-GreenBottom AI is an innovative tool that combines artificial intelligence, financial modeling, and mapping to help landowners and aspiring sustainable homeowners make smarter investment decisions. Designed with a mix of real-time stock forecasting, personalized AI advice, and real estate data visualization, the application aims to assist users in funding eco-conscious projects such as building an Earthship on privately owned land.
+GreenBottom AI is an innovative tool that combines artificial intelligence, financial modeling, and mapping to help landowners and aspiring sustainable homeowners make smarter investment decisions. Designed with a mix of real-time stock forecasting, personalized AI advice, weather awareness, and real estate data visualization, the application aims to assist users in funding eco-conscious projects such as building an Earthship on privately owned land.
 
-At its core, GreenBottom AI pulls stock market data from Yahoo Finance and uses machine learning (Random Forest Regression) to predict 30-day price trends. It incorporates user-specific data such as income, stock ownership, and available cash to evaluate the best course of financial action—whether to buy, hold, or sell. The platform then leverages OpenAI’s GPT-4o model to deliver personalized advice with a distinct voice: casual, sarcastic, and surprisingly helpful.
+At its core, GreenBottom AI pulls stock market data from Yahoo Finance and uses machine learning (Random Forest Regression) to predict 30-day price trends. It incorporates user-specific data such as income, stock ownership, current location temperature, and available cash to evaluate the best course of financial action—whether to buy, hold, or sell. The platform then leverages OpenAI’s GPT-4o model to deliver personalized advice with a distinct voice: casual, sarcastic, and surprisingly helpful.
 
 What Has Been Accomplished:
 
@@ -17,6 +17,8 @@ GPT-4o integration to interpret financial and sustainability data in a natural, 
 A unique AI "persona" (GreenBottom) that offers witty, yet practical advice based on real inputs.
 
 Automatic metadata logging of AI-generated insights in structured JSON format.
+
+Weatherify Integration: Real-time local temperature detection based on the user’s location, stored in JSON and factored into investment and building guidance—especially relevant for Earthship viability in different climates.
 
 A defined plan for integrating OpenStreetMap via Leaflet to showcase lot locations, model homes, and neighborhoods from regional builders like McQ Builders and Wetherington Homes.
 
@@ -37,7 +39,9 @@ Integrate real-time materials cost tracking and builder upgrade options.
 
 Expand the AI Listing Generator to include upgrade customization, image-based descriptions, and voice-over narration.
 
+Enhance Weatherify to provide localized environmental conditions (e.g., humidity, sun hours, seasonal extremes) to better match land development with building type.
+
 Explore deployment on a cloud platform for public use and collaboration.
 
 Why It Matters:
-With growing interest in sustainable living, there is a need for tools that bridge finance, real estate, and personal values. GreenBottom AI is a step in that direction. It transforms abstract stock data into practical, goal-oriented decisions and presents them in a way that feels both smart and human. Whether used by first-time investors or green builders, GreenBottom offers a bold new way to make money decisions that support a better future.
+With growing interest in sustainable living, there is a need for tools that bridge finance, real estate, environmental data, and personal values. GreenBottom AI is a step in that direction. It transforms abstract stock and weather data into practical, goal-oriented decisions and presents them in a way that feels both smart and human. Whether used by first-time investors or green builders, GreenBottom offers a bold new way to make money decisions that support a better future.
