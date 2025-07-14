@@ -1,7 +1,7 @@
 
 ---
 
-### **GreenBottom AI: One-Page Summary**
+### **GreenBottom AI**
 
 **Overview:**
 GreenBottom AI is an innovative tool that combines artificial intelligence, financial modeling, and mapping to help landowners and aspiring sustainable homeowners make smarter investment decisions. Designed with a mix of real-time stock forecasting, personalized AI advice, and real estate data visualization, the application aims to assist users in funding eco-conscious projects such as building an Earthship on privately owned land.
