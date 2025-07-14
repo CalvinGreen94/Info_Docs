@@ -23,7 +23,7 @@ A defined plan for integrating OpenStreetMap via Leaflet to showcase lot locatio
 New AI Listing Generator module using Vite + TypeScript + OpenAI to dynamically generate warm, engaging home descriptions for builders’ listings. This allows McQ and Wetherington staff to auto-create marketing copy from basic specs like beds, baths, and square footage.
 
 Vision and Purpose:
-GreenBottom is designed not just to analyze investments, but to align them with lifestyle goals—specifically, building a self-sustaining, Earthship-style home on 20 acres of land. It bridges the gap between traditional financial tools and the personal aspirations of environmentally conscious individuals. The tool’s tone and design make it accessible, human, and a little irreverent—bringing much-needed personality into the world of investment analysis.
+GreenBottom is designed not just to analyze investments, but to align them with lifestyle goals—specifically, building a self-sustaining, Earthship-style home on 20 acres of land. It bridges the gap between traditional financial tools and the personal aspirations of environmentally conscious individuals. The tool’s tone and design make it accessible, human, and a little irreverent, bringing much-needed personality into the world of investment analysis.
 
 Next Steps:
 
