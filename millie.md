@@ -132,4 +132,3 @@ Entanglia + GreenBottom are redefining real estate with decentralized intelligen
 
 ---
 
-**[Request Investor Deck]** • **[Join the Beta]** • **[Contact Calvin Green]**
